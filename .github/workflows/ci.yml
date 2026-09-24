@@ -36,4 +36,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: push Docker image
-        run: docker push syamsundar721/ci-cd-pipeline:v3
+        run: docker push syamsundar721/ci-cd-pipeline:latest
