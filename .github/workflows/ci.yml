@@ -27,7 +27,7 @@ jobs:
         run: python3 -m pytest
 
       - name: Build Docker image
-        run: docker build -t ci-cd-pipeline .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ci-cd-pipeline:latest .
 
       - name: Login to the DockerHub
         uses: docker/login-action@v3
