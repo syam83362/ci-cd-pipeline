@@ -27,7 +27,8 @@ jobs:
       - name: Create Ansible inventory
         run: |
           echo "[ec2]" > inventory
-          echo "ec2-server ansible_host=${{ secrets.EC2_HOST }} ansible_user=${{ secrets.EC2_USER }} ansible_ssh_private_key_file=~/.ssh/ci-cd-demo.pem" >> inventory
+          echo "ec2-server ansible_host=${{ secrets.EC2_IP }} ansible_user=${{ secrets.EC2_NAME }} ansible_ssh_private_key_file=~/.ssh/ci-cd-demo.pem" >> inventory
+          echo "cat "
 
       - name: Deploy application to EC2
         run: |
