@@ -1,0 +1,19 @@
+- name: Deploy Docker application
+  hosts: ec2
+  become: true
+
+  tasks:
+    - name: Pull application image
+      community.docker.docker_image:
+          name: syamsundar721/ci-cd-pipeline
+          tag: latest
+          source: pull
+
+    - name: Run application container
+      community.docker.docker_container:
+          name: myapp
+          image: syamsundar721/ci-cd-pipeline:latest
+          state: started
+          restart_policy: unless-stopped
+          ports: 
+              - "8000:8000"
